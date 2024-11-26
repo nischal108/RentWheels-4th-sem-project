@@ -36,7 +36,7 @@ const AdminBookingManagement = () => {
             {bookings.map((booking) => (
               <tr key={booking.id} className="border-b hover:bg-gray-100 transition duration-300 ease-in-out">
                 <td className="px-2 py-1 whitespace-nowrap">{booking.id}</td>
-                
+
                 {/* Renter Info */}
                 <td className="px-2 py-2 whitespace-nowrap">
                   <div className="flex items-center space-x-2">
