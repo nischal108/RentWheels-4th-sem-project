@@ -1,16 +1,15 @@
-import React, { useState } from 'react';
-import { 
-  FileText, 
-  Check, 
-  X, 
-  Car, 
-  Users, 
-  Settings, 
-  DollarSign,
-  Loader2,
+import {
+  Banknote,
   Calendar,
-  Banknote
+  Car,
+  Check,
+  FileText,
+  Loader2,
+  Settings,
+  Users,
+  X
 } from 'lucide-react';
+import React, { useState } from 'react';
 
 import api from '../../services/api';
 import NotifyToast from '../ui/NotifyToast';
@@ -64,7 +63,7 @@ const AdminVehicleCard = ({ vehicle }) => {
     <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
       {/* Vehicle Image */}
       <div className="relative h-48 overflow-hidden">
-        <img 
+        <img
           src={`${import.meta.env.VITE_IMG_URL}${vehicle.image}`}
           alt={vehicle.name}
           className="w-full h-full object-cover"
@@ -173,7 +172,7 @@ const AdminVehicleCard = ({ vehicle }) => {
               </div>
             </div>
           )}
-          
+
           {error && (
             <p className="mt-2 text-sm text-red-500">{error}</p>
           )}

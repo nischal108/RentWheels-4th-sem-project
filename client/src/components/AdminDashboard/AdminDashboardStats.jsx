@@ -38,7 +38,7 @@ const AdminDashboardStats = () => {
   return (
     <div className="p-6 bg-gray-50">
       <h2 className="text-2xl font-bold text-gray-800 mb-6">Dashboard Overview</h2>
-      
+
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-4">
         <StatCard
           title="Total Users"
@@ -46,35 +46,35 @@ const AdminDashboardStats = () => {
           icon={Users}
           className="bg-blue-100 text-blue-600"
         />
-        
+
         <StatCard
           title="Total Vehicles"
           value={stats.vehicles}
           icon={Car}
           className="bg-green-100 text-green-600"
         />
-        
+
         <StatCard
           title="Total Bookings"
           value={stats.bookings}
           icon={Calendar}
           className="bg-purple-100 text-purple-600"
         />
-        
+
         <StatCard
           title="Total Revenue"
           value={`रु.${stats.totalRevenue}`}
           icon={DollarSign}
           className="bg-yellow-100 text-yellow-600"
         />
-        
+
         <StatCard
           title="Approved Vehicles"
           value={stats.approvedVehicles}
           icon={CheckCircle}
           className="bg-emerald-100 text-emerald-600"
         />
-        
+
         <StatCard
           title="Pending Approval"
           value={stats.notapprovedVehicles}

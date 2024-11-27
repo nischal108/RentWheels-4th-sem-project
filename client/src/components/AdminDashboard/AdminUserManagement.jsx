@@ -12,15 +12,15 @@ const UserCard = ({ user, roleColor }) => {
 
   return (
     <div className="bg-white rounded-lg shadow-sm border border-gray-100 hover:shadow-md transition-all">
-      <div 
+      <div
         className="p-3 flex items-center justify-between cursor-pointer"
         onClick={() => setExpanded(!expanded)}
       >
         <div className="flex items-center space-x-3">
           <div className={`w-8 h-8 rounded-full ${roleColor} flex items-center justify-center flex-shrink-0`}>
             {user.role === 'ADMIN' ? <Crown className="w-4 h-4 text-white" /> :
-             user.role === 'OWNER' ? <Car className="w-4 h-4 text-white" /> :
-             <Users className="w-4 h-4 text-white" />}
+              user.role === 'OWNER' ? <Car className="w-4 h-4 text-white" /> :
+                <Users className="w-4 h-4 text-white" />}
           </div>
           <div className="min-w-0">
             <h3 className="font-medium text-gray-800 text-sm truncate">{user.fullName}</h3>
@@ -29,12 +29,12 @@ const UserCard = ({ user, roleColor }) => {
             </span>
           </div>
         </div>
-        {expanded ? 
+        {expanded ?
           <ChevronUp className="w-4 h-4 text-gray-400" /> :
           <ChevronDown className="w-4 h-4 text-gray-400" />
         }
       </div>
-      
+
       {expanded && (
         <div className="px-3 pb-3 space-y-2 text-xs border-t border-gray-100 pt-2">
           <div className="flex items-center text-gray-600">
@@ -58,15 +58,15 @@ const UserCard = ({ user, roleColor }) => {
 const UserSection = ({ title, users, roleColor, icon: Icon }) => {
   const [isCollapsed, setIsCollapsed] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
-  
-  const filteredUsers = users.filter(user => 
+
+  const filteredUsers = users.filter(user =>
     user.fullName.toLowerCase().includes(searchTerm.toLowerCase()) ||
     user.email.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
   return (
     <div className="bg-white rounded-lg shadow-sm border border-gray-200 mb-4">
-      <div 
+      <div
         className="p-4 flex items-center justify-between cursor-pointer border-b border-gray-100"
         onClick={() => setIsCollapsed(!isCollapsed)}
       >
@@ -76,7 +76,7 @@ const UserSection = ({ title, users, roleColor, icon: Icon }) => {
             {title} ({users.length})
           </h3>
         </div>
-        {isCollapsed ? 
+        {isCollapsed ?
           <ChevronDown className="w-5 h-5 text-gray-400" /> :
           <ChevronUp className="w-5 h-5 text-gray-400" />
         }
@@ -99,10 +99,10 @@ const UserSection = ({ title, users, roleColor, icon: Icon }) => {
 
           <div className="p-4 grid gap-3 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
             {filteredUsers.map(user => (
-              <UserCard 
-                key={user.id} 
-                user={user} 
-                roleColor={roleColor} 
+              <UserCard
+                key={user.id}
+                user={user}
+                roleColor={roleColor}
               />
             ))}
           </div>
