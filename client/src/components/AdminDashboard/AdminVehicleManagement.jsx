@@ -1,7 +1,7 @@
+import { Loader2 } from 'lucide-react'
 import React, { useEffect, useState } from 'react'
 import api from '../../services/api'
-import { Loader2 } from 'lucide-react'
-import AdminVehicleCard from './AdminVehicleCard' 
+import AdminVehicleCard from './AdminVehicleCard'
 
 const AdminVehicleManagement = () => {
   const [vehicles, setVehicles] = useState([])

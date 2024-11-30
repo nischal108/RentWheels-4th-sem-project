@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-import { Users, Car, Calendar, CreditCard } from 'lucide-react';
+import { Calendar, Car, CreditCard, Users } from 'lucide-react';
+import React from 'react';
 
 const StatsCard = ({ title, value, icon: Icon, trend }) => {
   if(value === undefined) return null;
