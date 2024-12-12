@@ -1,6 +1,6 @@
-import React, { useState, useEffect, useRef } from 'react';
+import { Bell, Car, ChevronDown, LogIn, Menu, X } from 'lucide-react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
-import { Menu, X, Car, User, LogIn, Bell, LogOut, ChevronDown } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
 
 const Navbar = () => {
