@@ -1,6 +1,10 @@
 generator client {
   provider = "prisma-client-js"
-  output   = "./generated/prisma-client-js"
+}
+
+generator erd {
+  provider = "prisma-erd-generator"
+  output = "../ERD.png"
 }
 
 datasource db {
