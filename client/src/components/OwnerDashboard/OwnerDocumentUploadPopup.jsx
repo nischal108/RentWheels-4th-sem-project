@@ -16,19 +16,19 @@ const OwnerDocumentUploadPopup = ({ vehicleId, onClose }) => {
     const fetchVehicleDocuments = async () => {
       try {
         const response = await api.get(`/documents/vehicle/${vehicleId}`);
-        if(response.data.data.length != 0){
+        if (response.data.data.length != 0) {
           setInputDisabled(true);
           setDocumentType(response.data.data[0].type);
           setPreviewUrl(`${imageBaseUrl}/${response.data.data[0].fileUrl}`);
         }
 
-        
+
       } catch (error) {
         console.error('Failed to fetch vehicle documents:', error);
       }
     };
 
-    fetchVehicleDocuments();  
+    fetchVehicleDocuments();
   }, []);
 
   const documentTypes = [
@@ -85,7 +85,7 @@ const OwnerDocumentUploadPopup = ({ vehicleId, onClose }) => {
             <FileText className="w-5 h-5 text-blue-500" />
             <h2 className="text-xl font-semibold text-gray-800">Upload Vehicle Documents</h2>
           </div>
-          <button 
+          <button
             onClick={onClose}
             className="p-2 hover:bg-gray-100 rounded-full transition-colors"
           >
@@ -192,8 +192,8 @@ const OwnerDocumentUploadPopup = ({ vehicleId, onClose }) => {
             type="submit"
             disabled={!file || !documentType || isUploading || InputDisabled}
             className={`px-4 py-2 text-white rounded-lg transition-colors flex items-center gap-2
-              ${isUploading || !file || !documentType 
-                ? 'bg-gray-400 cursor-not-allowed' 
+              ${isUploading || !file || !documentType
+                ? 'bg-gray-400 cursor-not-allowed'
                 : 'bg-blue-500 hover:bg-blue-600'}`}
           >
             {isUploading ? (

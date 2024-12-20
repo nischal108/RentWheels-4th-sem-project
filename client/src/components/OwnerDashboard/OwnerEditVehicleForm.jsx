@@ -31,7 +31,7 @@ const OwnerEditVehicleForm = ({ vehicle, onClose, onUpdate }) => {
                     <Car className="w-5 h-5 text-blue-500" />
                     <h2 className="text-xl font-semibold text-gray-800">Edit Vehicle Details</h2>
                 </div>
-                <button 
+                <button
                     onClick={onClose}
                     className="p-1 hover:bg-gray-100 rounded-full transition-colors"
                 >
