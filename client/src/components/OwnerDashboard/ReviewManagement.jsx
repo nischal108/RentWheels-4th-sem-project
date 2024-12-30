@@ -39,11 +39,10 @@ const ReviewManagement = () => {
         {[...Array(5)].map((_, index) => (
           <Star
             key={index}
-            className={`w-5 h-5 transition-colors ${
-              index < rating 
-                ? "fill-yellow-400 text-yellow-400" 
+            className={`w-5 h-5 transition-colors ${index < rating
+                ? "fill-yellow-400 text-yellow-400"
                 : "fill-gray-200 text-gray-200"
-            }`}
+              }`}
           />
         ))}
         <span className="ml-2 text-sm font-medium text-gray-600">
@@ -72,7 +71,7 @@ const ReviewManagement = () => {
     <div className="min-h-[60vh] flex flex-col items-center justify-center text-red-600 space-y-4">
       <AlertCircle className="w-16 h-16" />
       <p className="text-lg font-medium">{error}</p>
-      <button 
+      <button
         onClick={() => window.location.reload()}
         className="px-4 py-2 bg-red-100 text-red-600 rounded-lg hover:bg-red-200 transition-colors"
       >
@@ -114,7 +113,7 @@ const ReviewManagement = () => {
 
       <div className="grid gap-6">
         {reviews.map(review => (
-          <div 
+          <div
             key={review.id}
             className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 transition-all hover:shadow-lg"
           >
@@ -150,7 +149,7 @@ const ReviewManagement = () => {
                 <p className="text-gray-600 whitespace-pre-wrap">{review.comment}</p>
               </div>
 
-             
+
             </div>
           </div>
         ))}
