@@ -6,7 +6,7 @@ import { useAuth } from '../../context/AuthContext';
 const UserPaymentForm = ({ vehicleId, bookingData, onClose, vehicle }) => {
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(null);
-    const {user} = useAuth();
+    const { user } = useAuth();
 
     // Calculate total hours
     const totalHours = bookingData.startDate && bookingData.endDate ?
@@ -25,7 +25,7 @@ const UserPaymentForm = ({ vehicleId, bookingData, onClose, vehicle }) => {
         try {
             setIsLoading(true);
             setError(null);
-    
+
             const bookingResponse = await api.post('/bookings/create', {
                 vehicleId,
                 startDate: new Date(`${bookingData.startDate.toDateString()} ${bookingData.startTime}`),
@@ -34,13 +34,13 @@ const UserPaymentForm = ({ vehicleId, bookingData, onClose, vehicle }) => {
                 status: 'PENDING',
                 driverRequired: bookingData.driverRequired
             });
-    
-            
+
+
             if (bookingResponse.status !== 201) throw new Error('Booking creation failed');
-    
+
             const pendingBookingData = bookingResponse.data.data;
-    
-            
+
+
             const paymentResponse = await api.post(`/payments/create`, {
                 amount: totalPrice,
                 purchase_order_id: pendingBookingData.id,
@@ -50,14 +50,14 @@ const UserPaymentForm = ({ vehicleId, bookingData, onClose, vehicle }) => {
                 return_url: 'http://localhost:3000/payment/success',
                 website_url: 'http://localhost:3000'
             });
-           
-    
+
+
             if (!paymentResponse.data.success) throw new Error(paymentResponse.data.message);
-    
+
             // Redirect to Khalti payment page
             const paymentInitiationUrl = paymentResponse.data.data.paymentInitiationUrl;
             window.location.href = paymentInitiationUrl;
-    
+
         } catch (err) {
             setError(err.message || 'Payment initialization failed');
             console.error('Payment error:', err);
@@ -65,7 +65,7 @@ const UserPaymentForm = ({ vehicleId, bookingData, onClose, vehicle }) => {
             setIsLoading(false);
         }
     };
-    
+
 
     return (
         <div className="bg-white rounded-xl w-full max-w-3xl shadow-2xl max-h-[90vh] space-y-4 overflow-y-auto p-8">
@@ -99,7 +99,7 @@ const UserPaymentForm = ({ vehicleId, bookingData, onClose, vehicle }) => {
                 </div>
             )}
 
-                        {/* Booking Summary */}
+            {/* Booking Summary */}
             {bookingData.startDate && bookingData.endDate && bookingData.startTime && bookingData.endTime && (
                 <div className="bg-blue-50 p-4 rounded-lg border border-blue-100">
                     <h4 className="text-sm font-medium text-blue-800 mb-3">Booking Summary</h4>
@@ -163,9 +163,8 @@ const UserPaymentForm = ({ vehicleId, bookingData, onClose, vehicle }) => {
 
             {/* Payment Button */}
             <button
-                className={`w-full bg-purple-600 hover:bg-purple-700 text-white font-medium py-3 px-4 rounded-lg flex items-center justify-center ${
-                    isLoading ? 'opacity-50 cursor-not-allowed' : ''
-                }`}
+                className={`w-full bg-purple-600 hover:bg-purple-700 text-white font-medium py-3 px-4 rounded-lg flex items-center justify-center ${isLoading ? 'opacity-50 cursor-not-allowed' : ''
+                    }`}
                 onClick={handleKhaltiCheckOut}
                 disabled={isLoading}
             >
