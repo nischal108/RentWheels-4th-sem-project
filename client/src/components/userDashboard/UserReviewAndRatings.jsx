@@ -1,5 +1,5 @@
+import { Calendar, Clock, Star, ThumbsUp } from 'lucide-react';
 import React from 'react';
-import { Star, Calendar, Clock, ThumbsUp } from 'lucide-react';
 
 const UserReviewAndRatings = ({ reviews }) => {
   // Function to format date
@@ -12,7 +12,7 @@ const UserReviewAndRatings = ({ reviews }) => {
   };
 
   // Calculate average rating
-  const averageRating = reviews.length 
+  const averageRating = reviews.length
     ? (reviews.reduce((acc, review) => acc + review.rating, 0) / reviews.length).toFixed(1)
     : 0;
 
@@ -27,7 +27,7 @@ const UserReviewAndRatings = ({ reviews }) => {
             <span className="text-blue-600 font-medium">{averageRating} Average</span>
           </div>
         </div>
-        
+
         <div className="flex items-center space-x-4 text-sm text-gray-600">
           <div className="flex items-center">
             <ThumbsUp className="w-4 h-4 mr-2" />
@@ -56,16 +56,15 @@ const UserReviewAndRatings = ({ reviews }) => {
                   </span>
                 </div>
               </div>
-              
+
               <div className="flex items-center space-x-1">
                 {[...Array(5)].map((_, index) => (
                   <Star
                     key={index}
-                    className={`w-5 h-5 ${
-                      index < review.rating
+                    className={`w-5 h-5 ${index < review.rating
                         ? 'text-yellow-400 fill-current'
                         : 'text-gray-200 fill-current'
-                    }`}
+                      }`}
                   />
                 ))}
               </div>
@@ -78,7 +77,7 @@ const UserReviewAndRatings = ({ reviews }) => {
                 </p>
               </div>
             )}
-            
+
             {/* Tags/Metadata */}
             <div className="mt-4 flex flex-wrap gap-2">
               <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-50 text-blue-700">

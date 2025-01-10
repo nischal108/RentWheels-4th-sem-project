@@ -1,5 +1,5 @@
+import { AlertCircle, CheckCircle, XCircle } from 'lucide-react';
 import React, { useEffect, useState } from 'react';
-import { CheckCircle, AlertCircle, XCircle } from 'lucide-react';
 
 const NotifyToast = ({ type, message, duration = 3000, onClose }) => {
   const [isVisible, setIsVisible] = useState(true);
